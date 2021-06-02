@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "637926436345",
+    "project_id": "trusty-acre-310814",
+    "storage_bucket": "trusty-acre-310814.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:637926436345:android:4a7df7db26a97f2f95e128",
+        "android_client_info": {
+          "package_name": "com.bangkit.whatdish"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "637926436345-3i9tnu45lgp3agh528sofn7hen3q4meh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGrHJlSrf30spEY-QTIm88-5s8XujvXEI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "637926436345-3i9tnu45lgp3agh528sofn7hen3q4meh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:637926436345:android:b26143c8aead6fae95e128",
+        "android_client_info": {
+          "package_name": "com.capstone.cameraapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "637926436345-3i9tnu45lgp3agh528sofn7hen3q4meh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGrHJlSrf30spEY-QTIm88-5s8XujvXEI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "637926436345-3i9tnu45lgp3agh528sofn7hen3q4meh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

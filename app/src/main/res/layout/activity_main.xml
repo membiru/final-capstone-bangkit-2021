@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgapp"
+    tools:context=".ui.main.MainActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="30dp">
+
+        <TextView
+            android:id="@+id/tv_welcome"
+            android:text="@string/welcome"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/custom_black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="@string/get_know"
+            android:textSize="16sp"
+            android:textColor="@color/custom_black2"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_item_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:cardMaxElevation="4dp"
+            app:cardBackgroundColor="@color/purple_kid"
+            app:cardUseCompatPadding="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
+                <TextView
+                    android:id="@+id/tap_know"
+                    android:text="@string/tap_know"
+                    android:textSize="16sp"
+                    android:textColor="@color/custom_white2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="@string/how_work"
+                    android:textSize="20sp"
+                    android:textColor="@color/custom_white"
+                    android:textStyle="bold"
+                    android:layout_marginRight="16dp"
+                    android:layout_centerVertical="true"
+                    android:layout_below="@id/tap_know"
+                    android:layout_toLeftOf="@id/iv_star"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:id="@+id/iv_star"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="@string/desc_main_hero_1"
+                    android:src="@drawable/start_800px" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:text="@string/feature"
+            android:textSize="16sp"
+            android:textColor="@color/custom_black2"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_item_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:cardMaxElevation="4dp"
+                app:cardBackgroundColor="@color/blue_kid"
+                app:cardUseCompatPadding="true">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="16dp">
+                    <ImageView
+                        android:id="@+id/iv_camera"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginEnd="16dp"
+                        android:contentDescription="@string/desc_main_hero_2"
+                        android:src="@drawable/camera_800px" />
+                    <TextView
+                        android:text="@string/take_pic"
+                        android:textSize="14sp"
+                        android:textColor="@color/custom_black"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@id/iv_camera"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_item_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:cardMaxElevation="4dp"
+                app:cardBackgroundColor="@color/pink_kid"
+                app:cardUseCompatPadding="true">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="16dp">
+                    <ImageView
+                        android:id="@+id/iv_gallery"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginEnd="16dp"
+                        android:contentDescription="@string/desc_main_hero_3"
+                        android:src="@drawable/camera_media_800px" />
+                    <TextView
+                        android:text="@string/get_gallery"
+                        android:textSize="14sp"
+                        android:textColor="@color/custom_black"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@id/iv_gallery"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">WhatDish</string>
+
+    <string name="next">Next</string>
+    <string name="skip">Skip</string>
+    <string name="back">Back</string>
+
+    <string name="get_started">Get Started</string>
+    <string name="welcome">Welcome</string>
+    <string name="get_know">Get to know</string>
+    <string name="feature">Feature</string>
+    <string name="tap_know">Tap to know</string>
+    <string name="how_work">How the app work</string>
+    <string name="take_pic">Take picture</string>
+    <string name="get_gallery">Get from gallery</string>
+
+    <string name="food_title">Detail Information</string>
+    <string name="food_content">Title of the food</string>
+    <string name="information_title">Information</string>
+    <string name="information_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis urna nunc, a varius justo scelerisque ut.</string>
+
+    <string name="desc_main_hero_1">How the app work</string>
+    <string name="desc_main_hero_2">Take Picture</string>
+    <string name="desc_main_hero_3">Get from gallery</string>
+
+    <string name="desc_img_intro_1">Illustrate 1</string>
+    <string name="desc_img_intro_2">Illustrate 2</string>
+    <string name="desc_img_intro_3">Illustrate 3</string>
+    <string name="desc_img_intro_4">Illustrate 4</string>
+    <string name="text_head_intro_1">Get the Food</string>
+    <string name="text_head_intro_2">Wait</string>
+    <string name="text_head_intro_3">Check the result</string>
+    <string name="text_head_intro_4">Try Now</string>
+    <string name="text_content_intro_1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis urna nunc, a varius justo scelerisque ut.</string>
+    <string name="text_content_intro_2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis urna nunc, a varius justo scelerisque ut.</string>
+    <string name="text_content_intro_3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis urna nunc, a varius justo scelerisque ut.</string>
+    <string name="text_content_intro_4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis urna nunc, a varius justo scelerisque ut.</string>
+
+</resources>
