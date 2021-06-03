@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
+import com.bangkit.whatdish.R
 import com.bangkit.whatdish.data.source.local.FoodEntity
 import com.bangkit.whatdish.databinding.ActivityMainBinding
 import com.bangkit.whatdish.ui.detail.DetailActivity
@@ -73,7 +74,7 @@ class MainActivity : AppCompatActivity() {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 dispatchTakePictureIntent()
             } else {
-                show("Camera Permission is Required to Use camera.")
+                show(getString(R.string.t_camera_required))
             }
         }
     }
@@ -83,7 +84,6 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == CAMERA_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
                 val f = File(currentPhotoPath)
-//                selectedImage.setImageURI(Uri.fromFile(f))
                 Log.d("tag", "Absolute Url of Image is " + Uri.fromFile(f))
                 val mediaScanIntent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
                 val contentUri = Uri.fromFile(f)
@@ -91,8 +91,6 @@ class MainActivity : AppCompatActivity() {
                 this.sendBroadcast(mediaScanIntent)
 
                 uploadImageToFirebase(f.name, contentUri)
-
-                goDetailFood(f.name, contentUri)
             }
         }
         if (requestCode == GALLERY_REQUEST_CODE) {
@@ -101,11 +99,9 @@ class MainActivity : AppCompatActivity() {
                 val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
                 val imageFileName = "JPEG_" + timeStamp + "." + contentUri?.let { getFileExt(it) }
                 Log.d("tag", "onActivityResult: Gallery Image Uri:  $imageFileName")
-//                selectedImage.setImageURI(contentUri)
+
                 if (contentUri != null) {
                     uploadImageToFirebase(imageFileName, contentUri)
-
-                    goDetailFood(imageFileName, contentUri)
                 }
 
             }
@@ -125,17 +121,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun uploadImageToFirebase(name: String, contentUri: Uri) {
-        val image = storageReference.child("pictures/$name")
+        val image = storageReference.child("/$name")
         image.putFile(contentUri).addOnSuccessListener {
             image.downloadUrl.addOnSuccessListener { uri ->
-                Log.d(
-                    "tag",
-                    "onSuccess: Uploaded Image URl is $uri"
-                )
+                Log.d("tag", "onSuccess: Uploaded Image URl is $uri")
+                goDetailFood(name,contentUri)
             }
-            show("Processing data.")
         }.addOnFailureListener {
-            show("Failed send data.")
+            show(getString(R.string.t_upload_failed))
         }
     }
 

@@ -29,6 +29,7 @@ class DetailActivity : AppCompatActivity() {
         val food = intent.getParcelableExtra<FoodEntity>(EXTRA_DATA) as FoodEntity
         initViews(food)
 
+        detailViewModel.activity = this@DetailActivity
         detailViewModel.foodName.observe(this, { foodItem ->
             detailbinding.tvFoodTitle.text = foodItem
         })

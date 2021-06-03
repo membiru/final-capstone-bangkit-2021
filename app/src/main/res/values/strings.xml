@@ -29,11 +29,30 @@
     <string name="desc_img_intro_4">Illustrate 4</string>
     <string name="text_head_intro_1">Get the Food</string>
     <string name="text_head_intro_2">Wait</string>
-    <string name="text_head_intro_3">Check the result</string>
+    <string name="text_head_intro_3">TaDa! Here the magic</string>
     <string name="text_head_intro_4">Try Now</string>
-    <string name="text_content_intro_1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis urna nunc, a varius justo scelerisque ut.</string>
-    <string name="text_content_intro_2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis urna nunc, a varius justo scelerisque ut.</string>
-    <string name="text_content_intro_3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis urna nunc, a varius justo scelerisque ut.</string>
-    <string name="text_content_intro_4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis urna nunc, a varius justo scelerisque ut.</string>
 
+    //content
+    <string name="text_content_intro_1">
+        Prepare the object food you want to identify.\nAs long as it is food and not obtained from stealing it should be fine.
+    </string>
+
+    <string name="text_content_intro_2">
+        After selecting the image via your camera or gallery. Wait a moment for the system to finish processing.\nThe process shouldn\'t last as long as you conquer the world.
+    </string>
+
+    <string name="text_content_intro_3">
+        Finally the result of your photo successfully processed and data from your food is displayed.\nUnfortunately only food data is displayed not your soul mate.
+    </string>
+
+    <string name="text_content_intro_4">
+        If you interested. Be one of the good people who have tried it.
+    </string>
+
+    //toast
+    <string name="t_camera_required">Camera Permission is Required to Use camera</string>
+    <string name="t_upload_success">Image is on progress</string>
+    <string name="t_upload_failed">Failed send image to system</string>
+    <string name="err_400">Bad Request</string>
+    <string name="err_500">Internal Server Error</string>
 </resources>

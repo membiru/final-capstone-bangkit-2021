@@ -1,9 +1,14 @@
 package com.bangkit.whatdish.ui.detail
 
+import android.app.Activity
+import android.content.Context
+import android.content.res.Resources
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.bangkit.whatdish.R
 import com.bangkit.whatdish.data.source.remote.ApiConfig
 import com.bangkit.whatdish.data.source.remote.response.FoodResponse
 import com.bangkit.whatdish.data.source.remote.response.Message
@@ -20,6 +25,8 @@ class DetailViewModel: ViewModel() {
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
+
+    lateinit var activity: Activity
 
     companion object{
         private const val TAG = "DetailViewModel"
@@ -42,17 +49,26 @@ class DetailViewModel: ViewModel() {
                 if (response.isSuccessful) {
                     _foodItem.value = response.body()?.message?.imagePath
                     _foodListInfo.value = response.body()?.message?.information
-                    Log.e(TAG, "onSuccess: ${response.body()}")
-                    Log.e("1", _foodItem.value.toString())
-                    Log.e("2", _foodListInfo.value.toString())
                 } else {
                     Log.e(TAG, "onFailure: ${response.message()}")
+                    when(response.code()){
+                        400 -> show(activity.getString(R.string.err_400))
+                        500 -> show(activity.getString(R.string.err_500))
+                        else -> show (response.message())
+                    }
+                    activity.finish()
                 }
             }
             override fun onFailure(call: Call<FoodResponse>, t: Throwable) {
                 _isLoading.value = false
-                Log.e(TAG, "onFailure: ${t.message.toString()}")
+                show(t.message.toString())
+                activity.finish()
             }
         })
     }
+
+    private fun show(message: String) {
+        Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
+    }
+
 }
