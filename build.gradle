@@ -36,6 +36,8 @@ ext {
     okhttp3Version = '4.9.0'
     activityVersion = '1.2.3'
 
+    firebaseStorage = '20.0.0'
+
 }
 
 allprojects {

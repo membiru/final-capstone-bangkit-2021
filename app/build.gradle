@@ -51,7 +51,7 @@ dependencies {
     implementation "androidx.viewpager2:viewpager2:$viewPager2_version"
 
     //firebase
-    implementation 'com.google.firebase:firebase-storage:19.1.1'
+    implementation "com.google.firebase:firebase-storage:$firebaseStorage"
 
     //database management
     implementation "com.squareup.retrofit2:retrofit:$retrofit2Version"
@@ -71,7 +71,4 @@ dependencies {
     testImplementation "androidx.arch.core:core-testing:$androidCoreTestVersion"
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion"
 
-    // Import the Firebase BoM
-//    implementation platform('com.google.firebase:firebase-bom:28.0.1')
-//    implementation 'com.google.firebase:firebase-storage-ktx'
 }

@@ -27,7 +27,7 @@
         android:id="@+id/tvSkip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginTop="26dp"
         android:background="?selectableItemBackground"
         android:clickable="true"
@@ -37,7 +37,8 @@
         android:textColor="@color/custom_black3"
         android:textSize="16sp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"  />
+        android:layout_alignParentEnd="true"
+        android:focusable="true" />
 
     <TextView
         android:id="@+id/tvNext"
@@ -53,5 +54,6 @@
         android:textSize="16sp"
 
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:focusable="true" />
 </RelativeLayout>

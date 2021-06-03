@@ -9,8 +9,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="match_parent">
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyle"
@@ -124,7 +123,8 @@
                 android:textAllCaps="true"
                 android:textColor="@color/custom_black3"
                 android:textSize="16sp"
-                android:layout_gravity="end"/>
+                android:layout_gravity="end"
+                android:focusable="true" />
 
         </LinearLayout>
 
