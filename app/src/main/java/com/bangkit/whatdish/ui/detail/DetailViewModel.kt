@@ -30,7 +30,7 @@ class DetailViewModel: ViewModel() {
 
     companion object{
         private const val TAG = "DetailViewModel"
-        private const val FOOD_ID = "demo-image.png" //masih dummy
+        private const val FOOD_ID = "nasi-goreng.png" //change later with the real food, if ML model is done
     }
 
     init {

@@ -1,15 +1,11 @@
 package com.bangkit.whatdish.ui.detail
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.ArrayAdapter
 import androidx.activity.viewModels
-import com.bangkit.whatdish.R
+import androidx.appcompat.app.AppCompatActivity
 import com.bangkit.whatdish.data.source.local.FoodEntity
 import com.bangkit.whatdish.databinding.ActivityDetailBinding
-import com.bangkit.whatdish.ui.main.MainActivity
 import com.squareup.picasso.Picasso
 
 class DetailActivity : AppCompatActivity() {
@@ -31,11 +27,16 @@ class DetailActivity : AppCompatActivity() {
 
         detailViewModel.activity = this@DetailActivity
         detailViewModel.foodName.observe(this, { foodItem ->
-            detailbinding.tvFoodTitle.text = foodItem
+            detailbinding.tvFoodContent.text = foodItem
         })
 
+
         detailViewModel.foodListInfo.observe(this, { listInfo ->
-            detailbinding.lvInfo.adapter = ArrayAdapter(this, R.layout.item_list_inform, listInfo)
+            val builder: StringBuilder = StringBuilder()
+            for (details in listInfo) {
+                builder.append(details + "\n")
+            }
+            detailbinding.tvListInformFood.text = builder.toString()
         })
 
         detailViewModel.isLoading.observe(this, {state ->

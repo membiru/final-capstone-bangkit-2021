@@ -28,7 +28,7 @@
             android:padding="30dp">
 
             <TextView
-                android:text="@string/food_title"
+                android:text="@string/page_detail_title"
                 android:textSize="18dp"
                 android:textStyle="bold"
                 android:textColor="@color/custom_black"
@@ -47,29 +47,57 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:padding="30dp">
+
+                    <TextView
+                        android:id="@+id/tv_food_title"
+                        android:text="@string/food_title"
+                        android:textSize="16sp"
+                        android:textColor="@color/custom_black3"
+                        android:textAllCaps="true"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
                     <ImageView
                         android:id="@+id/iv_food"
                         android:layout_width="120dp"
                         android:layout_height="120dp"
                         android:scaleType="centerCrop"
                         android:adjustViewBounds="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_centerHorizontal="true"
-                        tools:src="@color/pink_kid"
+                        android:layout_marginTop="30dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/tv_food_title"
+                        tools:src="@color/custom_black2"
                         tools:ignore="ContentDescription" />
+
                     <TextView
-                        android:id="@+id/tv_food_title"
-                        android:text="@string/food_content"
-                        android:layout_below="@id/iv_food"
-                        android:gravity="center"
-                        android:layout_marginTop="14dp"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:textColor="@color/custom_black3"
+                        android:id="@+id/tv_title_1"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_food_title"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_toEndOf="@+id/iv_food"
+                        android:text="Title"
+                        android:textColor="@color/custom_black2"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_food_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_title_1"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_toEndOf="@+id/iv_food"
+                        android:text="@string/food_content"
+                        android:textColor="@color/custom_black3"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -85,8 +113,9 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:padding="30dp">
+
                     <TextView
                         android:id="@+id/tv_information_title"
                         android:text="@string/information_title"
@@ -97,14 +126,22 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
-                    <ListView
-                        android:id="@+id/lvInfo"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:overScrollMode="never"
-                        android:scrollbarSize="0dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_below="@id/tv_information_title" />
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:layout_below="@id/tv_information_title">
+
+                        <TextView
+                            android:id="@+id/tv_listInformFood"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            tools:text="@string/back"
+                            android:textColor="@color/custom_black2"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
 
                 </RelativeLayout>
 
