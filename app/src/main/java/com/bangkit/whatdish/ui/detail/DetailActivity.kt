@@ -25,11 +25,12 @@ class DetailActivity : AppCompatActivity() {
         val food = intent.getParcelableExtra<FoodEntity>(EXTRA_DATA) as FoodEntity
         initViews(food)
 
-        detailViewModel.activity = this@DetailActivity
+        detailViewModel.setFoodID((food.imageTitle))
+        detailViewModel.activity = (this@DetailActivity)
+
         detailViewModel.foodName.observe(this, { foodItem ->
             detailbinding.tvFoodContent.text = foodItem
         })
-
 
         detailViewModel.foodListInfo.observe(this, { listInfo ->
             val builder: StringBuilder = StringBuilder()
@@ -42,20 +43,22 @@ class DetailActivity : AppCompatActivity() {
         detailViewModel.isLoading.observe(this, {state ->
             if(state){
                 detailbinding.progressBar.visibility = View.VISIBLE
-                detailbinding.informLayout.visibility = View.GONE
+                detailbinding.scrollContent.visibility = View.GONE
             }else {
                 detailbinding.progressBar.visibility = View.GONE
-                detailbinding.informLayout.visibility = View.VISIBLE
+                detailbinding.scrollContent.visibility = View.VISIBLE
             }
         })
-
-
 
     }
 
     private fun initViews(mfood: FoodEntity){
-//        detailbinding.tvFoodTitle.text = mfood.imageTitle
-        Picasso.get().load(mfood.imageUri).into(detailbinding.ivFood)
+        detailbinding.tvFoodContent.text = mfood.imageTitle
+        Picasso.get()
+            .load(mfood.imageUri)
+            .fit()
+            .into(detailbinding.ivFood)
+
         detailbinding.tvBack.setOnClickListener {
             finish()
         }

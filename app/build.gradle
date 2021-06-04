@@ -49,6 +49,7 @@ dependencies {
     implementation "com.google.android.material:material:$materialVersion"
     implementation "com.squareup.picasso:picasso:$picassoVersion"
     implementation "androidx.viewpager2:viewpager2:$viewPager2_version"
+    implementation "com.makeramen:roundedimageview:$roundedImageView"
 
     //firebase
     implementation "com.google.firebase:firebase-storage:$firebaseStorage"

@@ -15,7 +15,7 @@
     <string name="get_gallery">Get from gallery</string>
 
     <string name="page_detail_title">Detail Page</string>
-    <string name="food_title">Your Image</string>
+    <string name="food_title">Title</string>
     <string name="food_content">Title of the food</string>
     <string name="information_title">Information</string>
     <string name="information_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis urna nunc, a varius justo scelerisque ut.</string>
@@ -54,6 +54,5 @@
     <string name="t_camera_required">Camera Permission is Required to Use camera</string>
     <string name="t_upload_success">Image is on progress</string>
     <string name="t_upload_failed">Failed send image to system</string>
-    <string name="err_400">Bad Request</string>
-    <string name="err_500">Internal Server Error</string>
+    <string name="err_try_again">Can\'t process your request right now\nTry again later</string>
 </resources>

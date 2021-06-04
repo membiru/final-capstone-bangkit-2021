@@ -1,170 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bgapp"
+    android:orientation="vertical"
     tools:context=".ui.detail.DetailActivity">
 
-    <RelativeLayout
+    <TextView
+        android:id="@+id/page_title"
+        android:text="@string/page_detail_title"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/custom_black"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            tools:visibility="visible" />
+        android:layout_height="wrap_content"
+        android:textAllCaps="true"
+        android:padding="30dp"/>
 
-        <LinearLayout
-            android:id="@+id/informLayout"
-            android:orientation="vertical"
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/page_title"
+        tools:visibility="visible" />
+
+    <ScrollView
+        android:id="@+id/scroll_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/page_title">
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="30dp">
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:text="@string/page_detail_title"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                android:textColor="@color/custom_black"
+            <LinearLayout
+                android:id="@+id/informLayout"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"/>
+                android:paddingEnd="30dp"
+                android:paddingStart="30dp"
+                android:paddingBottom="30dp">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cv_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="2dp"
-                app:cardMaxElevation="4dp"
-                app:cardUseCompatPadding="true">
-
-                <RelativeLayout
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="30dp">
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp"
+                    app:cardMaxElevation="4dp"
+                    app:cardUseCompatPadding="true">
 
-                    <TextView
-                        android:id="@+id/tv_food_title"
-                        android:text="@string/food_title"
-                        android:textSize="16sp"
-                        android:textColor="@color/custom_black3"
-                        android:textAllCaps="true"
-                        android:textStyle="bold"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                    <ImageView
-                        android:id="@+id/iv_food"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
-                        android:scaleType="centerCrop"
-                        android:adjustViewBounds="true"
-                        android:layout_marginTop="30dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_below="@+id/tv_food_title"
-                        tools:src="@color/custom_black2"
-                        tools:ignore="ContentDescription" />
-
-                    <TextView
-                        android:id="@+id/tv_title_1"
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/tv_food_title"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="30dp"
-                        android:layout_toEndOf="@+id/iv_food"
-                        android:text="Title"
-                        android:textColor="@color/custom_black2"
-                        android:textSize="14sp" />
+                        android:layout_marginEnd="30dp">
 
-                    <TextView
-                        android:id="@+id/tv_food_content"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/tv_title_1"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_toEndOf="@+id/iv_food"
-                        android:text="@string/food_content"
-                        android:textColor="@color/custom_black3"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cv_information"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="2dp"
-                app:cardMaxElevation="4dp"
-                app:cardUseCompatPadding="true">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="30dp">
-
-                    <TextView
-                        android:id="@+id/tv_information_title"
-                        android:text="@string/information_title"
-                        android:textSize="16sp"
-                        android:textColor="@color/custom_black3"
-                        android:textAllCaps="true"
-                        android:textStyle="bold"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:layout_below="@id/tv_information_title">
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            android:id="@+id/iv_food"
+                            android:layout_width="140dp"
+                            android:layout_height="140dp"
+                            android:scaleType="centerCrop"
+                            android:adjustViewBounds="true"
+                            android:layout_alignParentStart="true"
+                            app:riv_corner_radius_top_left="12dp"
+                            app:riv_corner_radius_bottom_left="12dp"
+                            tools:src="@color/custom_black2"
+                            tools:ignore="ContentDescription" />
 
                         <TextView
-                            android:id="@+id/tv_listInformFood"
+                            android:id="@+id/tv_food_title"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="16dp"
-                            tools:text="@string/back"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_toEndOf="@+id/iv_food"
+                            android:text="@string/food_title"
                             android:textColor="@color/custom_black2"
                             android:textSize="14sp" />
 
-                    </LinearLayout>
+                        <TextView
+                            android:id="@+id/tv_food_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv_food_title"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_toEndOf="@+id/iv_food"
+                            android:text="@string/food_content"
+                            android:textColor="@color/custom_black3"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
-                </RelativeLayout>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
 
-            </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_information"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp"
+                    app:cardMaxElevation="4dp"
+                    app:cardUseCompatPadding="true">
 
-            <TextView
-                android:id="@+id/tvBack"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginTop="16dp"
-                android:background="?selectableItemBackground"
-                android:clickable="true"
-                android:padding="8dp"
-                android:text="@string/back"
-                android:textAllCaps="true"
-                android:textColor="@color/custom_black3"
-                android:textSize="16sp"
-                android:layout_gravity="end"
-                android:focusable="true" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="30dp">
 
-        </LinearLayout>
+                        <TextView
+                            android:id="@+id/tv_information_title"
+                            android:text="@string/information_title"
+                            android:textSize="16sp"
+                            android:textColor="@color/custom_black3"
+                            android:textStyle="bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
 
-    </RelativeLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="30dp"
+                            android:layout_below="@id/tv_information_title">
 
-</ScrollView>
+                            <TextView
+                                android:id="@+id/tv_listInformFood"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="16dp"
+                                tools:text="@string/back"
+                                android:textColor="@color/custom_black2"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/tvBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/main_card"
+                    android:clickable="true"
+                    android:padding="10dp"
+
+                    android:text="@string/back"
+                    android:textAllCaps="true"
+                    android:textColor="@color/custom_white"
+                    android:textSize="16sp"
+                    android:layout_gravity="end"
+                    android:focusable="true" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+
+</RelativeLayout>

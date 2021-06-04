@@ -3,15 +3,18 @@ package com.bangkit.whatdish.ui.detail
 import android.app.Activity
 import android.content.Context
 import android.content.res.Resources
+import android.os.Handler
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.bangkit.whatdish.R
+import com.bangkit.whatdish.data.source.local.FoodEntity
 import com.bangkit.whatdish.data.source.remote.ApiConfig
 import com.bangkit.whatdish.data.source.remote.response.FoodResponse
 import com.bangkit.whatdish.data.source.remote.response.Message
+import kotlinx.coroutines.delay
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,39 +29,42 @@ class DetailViewModel: ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
+    private var foodID = ""
+    private var isNeverRunBefore = true
     lateinit var activity: Activity
-
-    companion object{
-        private const val TAG = "DetailViewModel"
-        private const val FOOD_ID = "nasi-goreng.png" //change later with the real food, if ML model is done
-    }
 
     init {
         findFoodInfo()
     }
 
-    fun findFoodInfo() {
+    private fun findFoodInfo() {
         _isLoading.value = true
-        val client = ApiConfig.getApiService().getFood(FOOD_ID)
+        val client = ApiConfig.getApiService().getFood(foodID)
+        Log.d("API:", client.toString())
         client.enqueue(object : Callback<FoodResponse> {
             override fun onResponse(
                 call: Call<FoodResponse>,
                 response: Response<FoodResponse>
             ) {
-                _isLoading.value = false
                 if (response.isSuccessful) {
+                    isNeverRunBefore = false
+
+                    _isLoading.value = false
                     _foodItem.value = response.body()?.message?.imagePath
                     _foodListInfo.value = response.body()?.message?.information
                 } else {
-                    Log.e(TAG, "onFailure: ${response.message()}")
-                    when(response.code()){
-                        400 -> show(activity.getString(R.string.err_400))
-                        500 -> show(activity.getString(R.string.err_500))
-                        else -> show (response.message())
+                    for (i in 1..3){
+                        Handler().postDelayed({
+                            if (isNeverRunBefore){
+                                findFoodInfo()
+                            }
+                        }, 800)
+                        break
                     }
-                    activity.finish()
+                    isNeverRunBefore = true
                 }
             }
+
             override fun onFailure(call: Call<FoodResponse>, t: Throwable) {
                 _isLoading.value = false
                 show(t.message.toString())
@@ -67,8 +73,13 @@ class DetailViewModel: ViewModel() {
         })
     }
 
+    fun setFoodID(x: String){
+        this.foodID = x
+    }
+
     private fun show(message: String) {
         Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
     }
+
 
 }

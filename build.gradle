@@ -31,6 +31,7 @@ ext {
     materialVersion = '1.3.0'
     picassoVersion = '2.71828'
     viewPager2_version = '1.0.0'
+    roundedImageView =  '2.3.0'
 
     retrofit2Version = '2.9.0'
     okhttp3Version = '4.9.0'
