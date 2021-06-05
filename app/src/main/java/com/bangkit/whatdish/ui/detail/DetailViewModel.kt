@@ -1,6 +1,7 @@
 package com.bangkit.whatdish.ui.detail
 
 import android.app.Activity
+import android.app.Application
 import android.content.Context
 import android.content.res.Resources
 import android.os.Handler
@@ -29,9 +30,11 @@ class DetailViewModel: ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
+    private val _message = MutableLiveData<Int>()
+    val message: LiveData<Int> = _message
+
     private var foodID = ""
     private var isNeverRunBefore = true
-    lateinit var activity: Activity
 
     init {
         findFoodInfo()
@@ -39,8 +42,9 @@ class DetailViewModel: ViewModel() {
 
     private fun findFoodInfo() {
         _isLoading.value = true
+        _message.value = 0
+
         val client = ApiConfig.getApiService().getFood(foodID)
-        Log.d("API:", client.toString())
         client.enqueue(object : Callback<FoodResponse> {
             override fun onResponse(
                 call: Call<FoodResponse>,
@@ -54,21 +58,27 @@ class DetailViewModel: ViewModel() {
                     _foodListInfo.value = response.body()?.message?.information
                 } else {
                     for (i in 1..3){
-                        Handler().postDelayed({
-                            if (isNeverRunBefore){
-                                findFoodInfo()
+                        if (isNeverRunBefore){
+                            Handler().postDelayed({
+                                if (isNeverRunBefore){
+                                    findFoodInfo()
+                                }
+                            }, 500)
+                        } else {
+                            when(response.code()){
+                                400 -> _message.value = 400
+                                500 -> _message.value = 500
                             }
-                        }, 800)
-                        break
+                            break
+                        }
+
                     }
-                    isNeverRunBefore = true
                 }
             }
 
             override fun onFailure(call: Call<FoodResponse>, t: Throwable) {
                 _isLoading.value = false
-                show(t.message.toString())
-                activity.finish()
+                _message.value = 1
             }
         })
     }
@@ -76,10 +86,5 @@ class DetailViewModel: ViewModel() {
     fun setFoodID(x: String){
         this.foodID = x
     }
-
-    private fun show(message: String) {
-        Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
-    }
-
 
 }

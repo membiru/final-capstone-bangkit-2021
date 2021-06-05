@@ -1,6 +1,7 @@
 package com.bangkit.whatdish.ui.detail
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -23,10 +24,26 @@ class DetailActivity : AppCompatActivity() {
         setContentView(detailbinding.root)
 
         val food = intent.getParcelableExtra<FoodEntity>(EXTRA_DATA) as FoodEntity
-        initViews(food)
 
-        detailViewModel.setFoodID((food.imageTitle))
-        detailViewModel.activity = (this@DetailActivity)
+        initViews(food)
+        initViewModel(food)
+
+    }
+
+    private fun initViews(mfood: FoodEntity){
+        detailbinding.tvFoodContent.text = mfood.imageTitle
+        Picasso.get()
+            .load(mfood.imageUri)
+            .fit()
+            .into(detailbinding.ivFood)
+
+        detailbinding.tvBack.setOnClickListener {
+            finish()
+        }
+    }
+
+    private fun initViewModel(mfood: FoodEntity){
+        detailViewModel.setFoodID((mfood.imageTitle))
 
         detailViewModel.foodName.observe(this, { foodItem ->
             detailbinding.tvFoodContent.text = foodItem
@@ -50,17 +67,25 @@ class DetailActivity : AppCompatActivity() {
             }
         })
 
+        detailViewModel.message.observe(this, {state ->
+            showMessage(state)
+        })
     }
 
-    private fun initViews(mfood: FoodEntity){
-        detailbinding.tvFoodContent.text = mfood.imageTitle
-        Picasso.get()
-            .load(mfood.imageUri)
-            .fit()
-            .into(detailbinding.ivFood)
-
-        detailbinding.tvBack.setOnClickListener {
-            finish()
+    private fun showMessage(code : Int){
+        when(code){
+            400 -> {
+                Log.d("Detail error: ", "400")
+                finish()
+            }
+            500 -> {
+                Log.d("Detail error: ", "500")
+                finish()
+            }
+            1 -> {
+                Log.d("Detail error: ", "-1")
+                finish()
+            }
         }
     }
 
