@@ -35,8 +35,11 @@ class DetailViewModel: ViewModel() {
 
     private var foodID = ""
     private var isNeverRunBefore = true
+    private var count = 0
 
     init {
+        count = 0
+        isNeverRunBefore = true
         findFoodInfo()
     }
 
@@ -57,28 +60,27 @@ class DetailViewModel: ViewModel() {
                     _foodItem.value = response.body()?.message?.imagePath
                     _foodListInfo.value = response.body()?.message?.information
                 } else {
-                    for (i in 1..3){
-                        if (isNeverRunBefore){
-                            Handler().postDelayed({
-                                if (isNeverRunBefore){
-                                    findFoodInfo()
-                                }
-                            }, 500)
-                        } else {
-                            when(response.code()){
-                                400 -> _message.value = 400
-                                500 -> _message.value = 500
-                            }
-                            break
+                    if (isNeverRunBefore && count <= 5){
+                        Handler().postDelayed({
+                            findFoodInfo()
+                            count ++
+                        }, 500)
+                    } else {
+                        when(response.code()){
+                            400 -> _message.value = 400
+                            500 -> _message.value = 500
                         }
-
+//                        _isLoading.value = false
                     }
+
                 }
             }
 
             override fun onFailure(call: Call<FoodResponse>, t: Throwable) {
                 _isLoading.value = false
                 _message.value = 1
+
+                isNeverRunBefore = false
             }
         })
     }

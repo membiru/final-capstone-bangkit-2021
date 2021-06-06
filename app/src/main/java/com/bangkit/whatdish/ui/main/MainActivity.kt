@@ -48,7 +48,6 @@ class MainActivity : AppCompatActivity() {
         mainActivityBinding.cvItem1.setOnClickListener {
             setPrefsData()
             startActivity(Intent(this@MainActivity, IntroActivity::class.java))
-            finish()
         }
         mainActivityBinding.cvItem2.setOnClickListener {
             askCameraPemission()

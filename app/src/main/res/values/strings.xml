@@ -30,7 +30,7 @@
     <string name="desc_img_intro_4">Illustrate 4</string>
     <string name="text_head_intro_1">Get the Food</string>
     <string name="text_head_intro_2">Wait</string>
-    <string name="text_head_intro_3">TaDa! Here the magic</string>
+    <string name="text_head_intro_3">Ta-Daa! Here the magic</string>
     <string name="text_head_intro_4">Try Now</string>
 
     //content
@@ -54,5 +54,8 @@
     <string name="t_camera_required">Camera Permission is Required to Use camera</string>
     <string name="t_upload_success">Image is on progress</string>
     <string name="t_upload_failed">Failed send image to system</string>
+
     <string name="err_try_again">Can\'t process your request right now\nTry again later</string>
+    <string name="err_failed">Failed to process your request.</string>
+
 </resources>

@@ -111,8 +111,8 @@
                         android:src="@drawable/camera_800px" />
                     <TextView
                         android:text="@string/take_pic"
-                        android:textSize="14sp"
-                        android:textColor="@color/custom_black"
+                        android:textSize="16sp"
+                        android:textColor="@color/white"
                         android:textStyle="bold"
                         android:gravity="center"
                         android:layout_centerHorizontal="true"
@@ -147,8 +147,8 @@
                         android:src="@drawable/camera_media_800px" />
                     <TextView
                         android:text="@string/get_gallery"
-                        android:textSize="14sp"
-                        android:textColor="@color/custom_black"
+                        android:textSize="16sp"
+                        android:textColor="@color/white"
                         android:textStyle="bold"
                         android:gravity="center"
                         android:layout_centerHorizontal="true"

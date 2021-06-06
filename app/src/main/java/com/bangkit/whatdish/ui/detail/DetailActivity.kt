@@ -3,8 +3,10 @@ package com.bangkit.whatdish.ui.detail
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.bangkit.whatdish.R
 import com.bangkit.whatdish.data.source.local.FoodEntity
 import com.bangkit.whatdish.databinding.ActivityDetailBinding
 import com.squareup.picasso.Picasso
@@ -75,18 +77,22 @@ class DetailActivity : AppCompatActivity() {
     private fun showMessage(code : Int){
         when(code){
             400 -> {
-                Log.d("Detail error: ", "400")
+                show(getString(R.string.err_try_again))
                 finish()
             }
             500 -> {
-                Log.d("Detail error: ", "500")
+                show(getString(R.string.err_try_again))
                 finish()
             }
             1 -> {
-                Log.d("Detail error: ", "-1")
+                show(getString(R.string.err_failed))
                 finish()
             }
         }
+    }
+
+    private fun show(message: String) {
+        Toast.makeText(this,message, Toast.LENGTH_SHORT).show()
     }
 
 }
